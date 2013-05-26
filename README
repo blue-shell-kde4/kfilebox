@@ -16,7 +16,8 @@ make
 sudo make install
 
 links:
+git: https://github.com/blue-shell/kfilebox
 deb packages: https://launchpad.net/~blue-shell/+archive/kfilebox
-web site: http://kdropbox.deuteros.es/
 bugtracker: http://sourceforge.net/apps/trac/kdropbox/report/1
-original code: http://sourceforge.net/projects/kdropbox/
+original code (old): http://sourceforge.net/projects/kdropbox/
+web site (defunct): http://kdropbox.deuteros.es/
