@@ -94,7 +94,7 @@ void DropboxClient::readDaemonOutput()
     QString swap = m_ps->readAllStandardOutput();
     if (swap.contains("https://www.dropbox.com/cli_link?host_id=")) {
         QString prevAuthUrl = m_authUrl;
-        m_authUrl = swap.remove("Please visit ").remove(" to link this machine.");
+        m_authUrl = swap.remove("Please visit ").remove(" to link this machine.").trimmed();
         if(prevAuthUrl.isEmpty() || prevAuthUrl!=m_authUrl) Notification().send(tr("Please visit <a href=\"%1\">url</a> to link this machine.").arg(m_authUrl));
     }
 }

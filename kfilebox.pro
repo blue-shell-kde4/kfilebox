@@ -7,6 +7,7 @@ QT += sql network dbus
 LIBS += -lkdeui -lkdecore
 TARGET = bin/kfilebox
 TEMPLATE = app
+INCLUDEPATH += /usr/include/kde4
 SOURCES += main.cpp \
     src/dropboxclient.cpp \
     src/dropboxclientadaptor.cpp \
