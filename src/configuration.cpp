@@ -29,7 +29,7 @@ void Configuration::initConfigurationFile()
     generalGroup->writeEntry("ShowNotifications", true);            //! @todo use from config.db
     generalGroup->writeEntry("AutoStart", true);
     generalGroup->writeEntry("StartDaemon", true);
-    generalGroup->writeEntry("GtkUiDisabled", false);
+    generalGroup->writeEntry("GtkUiDisabled", true);
     generalGroup->writeEntry("DropboxDir", QDir::homePath().append("/.dropbox-dist/"));
     //! @todo add more pairs
 
