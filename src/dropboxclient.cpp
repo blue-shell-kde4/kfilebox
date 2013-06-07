@@ -9,6 +9,7 @@ DropboxClient::DropboxClient(QObject *parent) :
 	dropbox_db = Singleton::instance();
 	prev_status = DropboxUnkown;
 	m_message = m_authUrl = "";
+        m_showAuthUrlNotification = true;
 
 	m_dropboxDir = Configuration().getValue("DropboxDir").toString();
 
@@ -94,8 +95,8 @@ void DropboxClient::readDaemonOutput()
     QString swap = m_ps->readAllStandardOutput();
     if (swap.contains("https://www.dropbox.com/cli_link?host_id=")) {
         QString prevAuthUrl = m_authUrl;
-        m_authUrl = swap.remove("Please visit ").remove(" to link this machine.").trimmed();
-        if(prevAuthUrl.isEmpty() || prevAuthUrl!=m_authUrl) Notification().send(tr("Please visit <a href=\"%1\">url</a> to link this machine.").arg(m_authUrl));
+        m_authUrl = swap.remove("Please visit ").remove(" to link this machine.").remove("This client is not linked to any account...").trimmed();
+        if(m_showAuthUrlNotification && (prevAuthUrl.isEmpty() || prevAuthUrl!=m_authUrl)) Notification().send(tr("Please visit <a href=\"%1\">url</a> to link this machine.").arg(m_authUrl));
     }
 }
 

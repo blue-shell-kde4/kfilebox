@@ -38,6 +38,9 @@ public:
     inline QString getAuthUrl() const {return m_authUrl;}
 	QStringList getRecentlyChangedFiles();
 
+        bool showAuthUrlNotification() const { return m_showAuthUrlNotification; }
+        void setShowAuthUrlNotification(bool show) { m_showAuthUrlNotification = show; }
+
 private:
     QTimer* m_timer;
     QProcess* m_ps;
@@ -46,6 +49,7 @@ private:
 	QString m_dropboxDir; // from kfilebox config
     DropboxStatus prev_status;
 	QStringList recently_changed;
+        bool m_showAuthUrlNotification;
 
     SynchronousDropboxConnection* dc;
 	ConfigurationDBDriver* dropbox_db;
